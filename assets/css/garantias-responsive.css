@@ -1,0 +1,234 @@
+/* ───── FORMULARIO GARANTÍAS (desktop) ──── */
+#garantiaForm {
+  max-width: 430px;
+  width: 100%;
+  margin: 0 0 2rem;      /* alineado a la izquierda */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Campos y botones siempre 100% */
+#garantiaForm label {
+  display: block;
+  margin-bottom: .25rem;
+}
+#garantiaForm input,
+#garantiaForm select,
+#garantiaForm button {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+#garantiaForm input[type="file"] {
+  margin-bottom: 1rem;
+}
+
+/* ========== MÓVIL (max-width:700px) ========== */
+@media (max-width: 700px) {
+  /* 1) Ocultar timeline para mostrar solo el form */
+  .timeline-warranty {
+    display: none !important;
+  }
+
+  /* 2) Centrar + acolchonado del form */
+  #garantiaForm {
+    margin: 0 auto 2rem !important;
+    padding: 0 2vw !important;
+  }
+
+  /* 3) Tabla scrollable y filas card” */
+  table.shop_table_responsive,
+  #tabla-reclamos {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  #tabla-reclamos thead {
+    display: none !important;
+  }
+  #tabla-reclamos tbody tr {
+    display: block !important;
+    margin-bottom: 18px !important;
+    border-bottom: 1px solid #eee !important;
+    padding-bottom: 6px !important;
+  }
+  #tabla-reclamos td {
+    display: block !important;
+    width: 100% !important;
+    padding: 7px 8px 2px 8px !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    position: relative !important;
+  }
+  #tabla-reclamos td:before {
+    content: attr(data-label) ": " !important;
+    color: #888 !important;
+    font-size: .92em !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    margin-bottom: 2px !important;
+  }
+}
+
+/* ========== ESCRITORIO (min-width:701px) ========== */
+@media (min-width: 701px) {
+  /* Revertir table layout */
+  table.shop_table_responsive,
+  #tabla-reclamos {
+    display: table !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+  #tabla-reclamos thead {
+    display: table-header-group !important;
+  }
+  #tabla-reclamos tbody {
+    display: table-row-group !important;
+  }
+  #tabla-reclamos tbody tr {
+    display: table-row !important;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+  }
+  #tabla-reclamos td {
+    display: table-cell !important;
+    padding: .75rem .5rem !important;
+    position: static !important;
+    box-sizing: border-box !important;
+  }
+  #tabla-reclamos td:before {
+    display: none !important;
+  }
+
+  /* Mostrar timeline de nuevo */
+  .timeline-warranty {
+    display: block !important;
+  }
+
+  /* Formulario: quita centrado/padding extra */
+  #garantiaForm {
+    margin: 0 0 2rem !important;
+    padding: 0 !important;
+  }
+}
+
+/* Opcional: mejora mensajes WooCommerce en mobile */
+@media (max-width: 600px) {
+  .woocommerce-message,
+  .woocommerce-error {
+    font-size: 1em !important;
+    padding: 11px 4vw !important;
+    margin: 10px 0 !important;
+  }
+}
+/* ======== PATCH MOBILE: CORREGIR LAYOUT ======== */
+@media (max-width: 700px) {
+  /* Asegurar que el formulario ocupe todo el ancho y esté centrado */
+  #garantiaForm {
+    width: 100% !important;
+    margin: 0 auto 2rem !important;
+    padding: 0 2vw !important;
+  }
+  /* Inputs y botones apilados sin márgenes extra duros */
+  #garantiaForm label,
+  #garantiaForm input,
+  #garantiaForm select,
+  #garantiaForm button {
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Tabla scrollable y filas en “card” */
+  #tabla-reclamos {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  #tabla-reclamos thead {
+    display: none !important;
+  }
+  #tabla-reclamos tbody tr {
+    display: block !important;
+    margin-bottom: 18px !important;
+    border-bottom: 1px solid #eee !important;
+    padding-bottom: 6px !important;
+  }
+  #tabla-reclamos td {
+    display: block !important;
+    width: 100% !important;
+    padding: 7px 8px 2px 8px !important;
+    box-sizing: border-box !important;
+  }
+  #tabla-reclamos td:before {
+    content: attr(data-label) ": " !important;
+    font-weight: 600 !important;
+    margin-bottom: 2px !important;
+    display: inline-block !important;
+  }
+
+  /* (Opcional) Ajustar mensajes de WooCommerce */
+  .woocommerce-message,
+  .woocommerce-error {
+    font-size: 1em !important;
+    padding: 11px 4vw !important;
+    margin: 10px 0 !important;
+  }
+}
+/* ====== MOBILE PATCH: FORMULARIO vs. TABLA DE RECLAMOS ====== */
+@media (max-width: 700px) {
+
+  /* 1) Tu FORMULARIO dinámico: scroll horizontal, conserva encabezados */
+  #garantiaForm table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #garantiaForm table thead {
+    display: table-header-group !important;
+  }
+  #garantiaForm table tbody tr {
+    display: table-row !important;
+  }
+  #garantiaForm table th,
+  #garantiaForm table td {
+    display: table-cell !important;
+    padding: .75rem .5rem !important;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  /* 2) Tu tabla de RECLAMOS viejos: colapsar a cards */
+  #tabla-reclamos {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  #tabla-reclamos thead {
+    display: none !important;
+  }
+  #tabla-reclamos tbody tr {
+    display: block !important;
+    margin-bottom: 18px !important;
+    border-bottom: 1px solid #eee !important;
+    padding-bottom: 6px !important;
+  }
+  #tabla-reclamos td {
+    display: block !important;
+    width: 100% !important;
+    padding: 7px 8px 2px 8px !important;
+    box-sizing: border-box !important;
+  }
+  #tabla-reclamos td:before {
+    content: attr(data-label) ": " !important;
+    font-weight: 600 !important;
+    margin-bottom: 2px !important;
+    display: inline-block !important;
+  }
+}

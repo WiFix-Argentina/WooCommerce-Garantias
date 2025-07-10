@@ -1,0 +1,1 @@
+// JS para el dashboard de reclamos (a completar)
